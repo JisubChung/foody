@@ -1,36 +1,17 @@
-section#main {
-    background-color: #b2d08a;
-    position: absolute;
-	-webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-	-webkit-transition: .2s ease-out;
-    -moz-transition: .2s ease-out;
-    -o-transition: .2s ease-out;
-    transition: .2s ease-out;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
 }
-section#main.active {
-	-webkit-transform: translate3d(270%,0,0);
-    transform: translate3d(270%,0,0);
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
-
-/* off canvas menu */
-section#offCanvasMenu {
-    background-color: #676767;
-    height: 100vh;
-	position: absolute;
-    width: 80%;
-	-webkit-transform: translate3d(-20%,0,0);
-    transform: translate3d(-20%,0,0);
-	-webkit-transition: .2s ease-out;
-    -moz-transition: .2s ease-out;
-    -o-transition: .2s ease-out;
-    transition: .2s ease-out;
-}
-section#offCanvasMenu.active {
-	-webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-}
-section#offCanvasMenu ul{
-    list-style-type: none;
-    padding: 0;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #f5f5f5;
 }
