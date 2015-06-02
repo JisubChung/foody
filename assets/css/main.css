@@ -53,6 +53,36 @@ section#offCanvasMenu ul{
     padding: 0;
 }
 
+#hero {
+  overflow: hidden;
+  height: 500px;
+}
+#hero img{
+  height: auto;
+  max-width: 100%;
+}
+#hero .logo{
+  position: absolute;
+  width: 200px;
+  z-index: 1em;
+  color: white;
+  background: rgb(199, 35, 35);
+  height: 200px;
+}
+
+
+#info {
+  background-color: orange;
+  padding: 1em 0;
+}
+#info ul.education {
+  list-style-type: none;
+}
+
+#info ul.education li {
+  margin-bottom: 1em;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
