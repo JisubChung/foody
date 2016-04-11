@@ -1,32 +1,41 @@
 body {
   font-size: 16px;
-  font-family: "Lato", sans-serif; }
+  font-family: "Lato", sans-serif;
+}
+
+.intro {
+  height: 7vh;
+}
 
 .intro.backgroundImage {
   background: url("../img/bg.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 3em; }
+}
 
 .education .school {
-  font-size: 1.5em; }
+  font-size: 1.5em;
+}
 
 .education .name {
-  font-size: 1.25em; }
+  font-size: 1.25em;
+}
 
 .education .year {
-  font-size: 1em; }
+  font-size: 1em;
+}
 
 .education .picBubble img {
   border-radius: 50%;
   height: 5em;
   width: 5em;
-  position: relative; }
+  position: relative;
+}
 
 footer {
-  display: flex; }
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 
 /* Material Cards */
 .card {
@@ -37,11 +46,23 @@ footer {
   height: 300px;
   margin: 1rem;
   position: relative;
-  width: 300px; }
+  width: 300px;
+}
 
 .card-1 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.2s ease-in-out; }
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
 
 .card-1:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Circle Skills */
+.circleSkill {
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  padding: 2em;
+}

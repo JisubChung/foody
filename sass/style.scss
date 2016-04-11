@@ -5,13 +5,9 @@ body {
   font-family: $fontHeadline;
 }
 .intro {
+  height: 7vh;
   &.backgroundImage{
     background: url('../img/bg.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    min-height: 3em;
   }
 }
 .education {
@@ -56,4 +52,12 @@ footer{
 
 .card-1:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/* Circle Skills */
+.circleSkill {
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+  padding: 2em;
 }
