@@ -1,11 +1,12 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var livereload = require('gulp-livereload');
+var refresh = require('gulp-refresh');
 
 var sassOptions = {
   errLogToConsole: true,
-  outputStyle: 'expanded'
+  outputStyle: 'expanded',
+  includePaths: require('node-normalize-scss').includePaths
 };
 var autoprefixerOptions = {
   browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
@@ -21,7 +22,7 @@ gulp.task('sass', function () {
     .pipe(autoprefixer(autoprefixerOptions))
     // Write the resulting CSS in the output folder
     .pipe(gulp.dest('./assets/css/'))
-    .pipe(livereload());
+    .pipe(refresh());
 });
 
 //Watch task
@@ -31,7 +32,8 @@ gulp.task('sass', function () {
 // });
 
 gulp.task('watch', function() {
-  livereload.listen();
+  refresh.listen();
+
   return gulp
     // Watch the input folder for change,
     // and run `sass` task when something happens
