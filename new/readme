@@ -1,0 +1,7 @@
+## install npm
+
+npm init
+
+## install gulp
+
+npm install gulp --save-dev

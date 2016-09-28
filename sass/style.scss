@@ -51,7 +51,7 @@ nav {
             right: 0;
             transform: translateY(-50%);
             h1 {
-                font-size: 3em;  
+                font-size: 3em;
                 margin: 0;
             }
             h2 {
@@ -77,6 +77,13 @@ nav {
     height: 5em;
     width: 5em;
     position:relative;
+  }
+}
+section {
+  &.whoami{
+    .bio {
+      padding: 2em 0;
+    }
   }
 }
 
