@@ -1,6 +1,8 @@
-var gulp = require('gulp'); // look into node_modules for a folder named "gulp"
+var gulp = require('gulp'), // look into node_modules for a folder named "gulp"
+    sass = require('gulp-sass');
 
-gulp.task('task-name', function(){
-  // do something here
-  console.log('woohoo');
+gulp.task('sass', function(){
+  return gulp.src('app/scss/**/*.scss')
+    .pipe(sass()) //using gulp-sass
+    .pipe(gulp.dest('app/css'))
 });
