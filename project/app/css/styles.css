@@ -1,0 +1,10 @@
+body {
+  color: red; }
+
+div {
+  display: -ms-flexbox;
+  display: flex;
+  color: #f000ee; }
+  div div {
+    -ms-flex-pack: center;
+    justify-content: center; }
