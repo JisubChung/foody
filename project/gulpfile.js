@@ -6,11 +6,17 @@ var gulp = require('gulp'),         // look into node_modules for a folder named
     gulpIf = require('gulp-if'),      // minify only what we want!
     cssnano = require('gulp-cssnano'),// minify css
     del = require('del'),             // deletes; like for outdated dist
-    runSequence = require('run-sequence'),
-    autoPrefixer = require('gulp-autoprefixer'); // makes sure order is kept
+    runSequence = require('run-sequence'),// makes sure order is kept
+    plumber = require('gulp-plumber'),
+    gutil = require('gulp-util'),     // utilities
+    autoPrefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
+    .pipe(plumber(function(error) {
+        gutil.log(gutil.colors.red(error.message));
+        this.emit('end');
+    }))
     .pipe(sass())
     .pipe(autoPrefixer({
             browsers: ['last 2 versions'],
