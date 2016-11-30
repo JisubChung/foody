@@ -1,0 +1,17 @@
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.siteContent {
+  -ms-flex: 1;
+  flex: 1;
+  padding: 20px; }
+
+footer {
+  padding: 20px; }
