@@ -9,7 +9,8 @@ var gulp = require('gulp'),         // look into node_modules for a folder named
     runSequence = require('run-sequence'),// makes sure order is kept
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),     // utilities
-    autoPrefixer = require('gulp-autoprefixer');
+    autoPrefixer = require('gulp-autoprefixer'),
+		nodemon = require('gulp-nodemon');
 
 gulp.task('sass', function() {
   return gulp.src('public/scss/**/*.scss') // Gets all files ending with .scss in public/scss
@@ -53,12 +54,22 @@ gulp.task('build', function (callback) {
 	)
 })
 
-gulp.task('browserSync', function() {
+gulp.task('nodemon', function(cb) {
+	var started = false;
+
+	return nodemon({
+		script: 'app.js'
+	}).on('start', function() {
+		if (!started) {
+			cb();
+			started = true;
+		}
+	})
+});
+
+gulp.task('browserSync', ['nodemon'], function() {
 	browserSync.init(null, {
-		server: {
-			baseDir: "public",
-			index: "index.html"
-		},
+		proxy: "localhost:5000",
 		files: ["public/**/*.*"],
 		port: 7000
 	});
