@@ -55,20 +55,14 @@ gulp.task('build', function (callback) {
 
 gulp.task('browserSync', function() {
 	browserSync.init(null, {
-		proxy: "http://localhost:5000",
+		server: {
+			baseDir: "public",
+			index: "index.html"
+		},
 		files: ["public/**/*.*"],
-		browser: "google chrome",
-		port: 7000,
+		port: 7000
 	});
 });
-
-// gulp.task('browserSync', function() {
-//   browserSync.init({
-//     server: {
-//       baseDir: 'app'
-//     }
-//   });
-// });
 
 gulp.task('default', function (callback) {
   runSequence(['sass','browserSync', 'watch'],
