@@ -1,7 +1,7 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,10 +22,14 @@
     "xtend": "^4.0.1"
   },
   "dependencies": {
+    "async": "^2.1.4",
     "browser-sync": "^2.16.0",
+    "express": "^4.14.0",
     "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
     "gulp-sass": "^2.3.2",
-    "gulp-watch": "^4.3.10"
+    "gulp-watch": "^4.3.10",
+    "nodemon": "^1.11.0"
   },
   "description": ""
 }

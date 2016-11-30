@@ -12,7 +12,7 @@ var gulp = require('gulp'),         // look into node_modules for a folder named
     autoPrefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function() {
-  return gulp.src('app/scss/**/*.scss') // Gets all files ending with .scss in app/scss
+  return gulp.src('public/scss/**/*.scss') // Gets all files ending with .scss in public/scss
     .pipe(plumber(function(error) {
         gutil.log(gutil.colors.red(error.message));
         this.emit('end');
@@ -22,22 +22,14 @@ gulp.task('sass', function() {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-    .pipe(gulp.dest('app/css'))
+    .pipe(gulp.dest('public/css'))
     .pipe(browserSync.reload({
       stream: true
     }));
 });
 
-gulp.task('browserSync', function() {
-  browserSync.init({
-    server: {
-      baseDir: 'app'
-    }
-  });
-});
-
 gulp.task('useref', function(){
-  return gulp.src('app/*.html')
+  return gulp.src('public/*.html')
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
@@ -46,30 +38,47 @@ gulp.task('useref', function(){
 });
 
 gulp.task('fonts', function() {
-  return gulp.src('app/fonts/**/*')
-  .pipe(gulp.dest('dist/fonts'))
+	return gulp.src('public/fonts/**/*')
+		.pipe(gulp.dest('dist/fonts'))
 })
 
 gulp.task('clean:dist', function() {
-  return del.sync('dist');
+	return del.sync('dist');
 })
 
 gulp.task('build', function (callback) {
-  runSequence('clean:dist',
-    ['sass', 'useref', 'fonts'],
-    callback
-  )
+	runSequence('clean:dist',
+		['sass', 'useref', 'fonts'],
+		callback
+	)
 })
+
+gulp.task('browserSync', function() {
+	browserSync.init(null, {
+		proxy: "http://localhost:5000",
+		files: ["public/**/*.*"],
+		browser: "google chrome",
+		port: 7000,
+	});
+});
+
+// gulp.task('browserSync', function() {
+//   browserSync.init({
+//     server: {
+//       baseDir: 'app'
+//     }
+//   });
+// });
 
 gulp.task('default', function (callback) {
   runSequence(['sass','browserSync', 'watch'],
     callback
   )
-})
+});
 
 gulp.task('watch', ['browserSync', 'sass'], function (){
-  gulp.watch('app/scss/**/*.scss', ['sass']);
+  gulp.watch('public/scss/**/*.scss', ['sass']);
   // Reload whenever the HTML or JS changes
-  gulp.watch('app/*.html', browserSync.reload);
-  gulp.watch('app/js/**/*.js', browserSync.reload);
+  gulp.watch('public/*.html', browserSync.reload);
+  gulp.watch('public/js/**/*.js', browserSync.reload);
 });
