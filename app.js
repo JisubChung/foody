@@ -8,13 +8,13 @@ var	assert = require('assert');
 
 
 // MONGO STUFF
-// Connection Url
+// Connection Url, TODO: set this programatically
 var url = 'mongodb://localhost:27017/foody';
 
 // Use connect method to connect to the server
 MongoClient.connect(url, function(err, db) {
 	assert.equal(null, err);
-	console.log("Connected successfully to server");
+	console.log("Mongo Connected");
 	db.close();
 });
 
@@ -22,7 +22,8 @@ MongoClient.connect(url, function(err, db) {
 app.set('port', (process.env.PORT || 5000));
 
 // TODO: there's a prettier way to do this, figure it out.
-// If there is a dist, use it
+////(The goal with the following section is to change file paths in the case of production vs develop
+//// If there is a dist, use it
 // fs.access(path.join(__dirname,'dist'),'r', function(err) {
 // 	var serve = !err ? 'dist':'public';
 // 	app.use(express.static(path.join(__dirname, serve)));
