@@ -10,7 +10,8 @@ var gulp = require('gulp'),         // look into node_modules for a folder named
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),     // utilities
     autoPrefixer = require('gulp-autoprefixer'),
-		nodemon = require('gulp-nodemon');
+		nodemon = require('gulp-nodemon'),
+		babel = require('gulp-babel');
 
 gulp.task('sass', function() {
   return gulp.src('public/scss/**/*.scss') // Gets all files ending with .scss in public/scss
@@ -76,10 +77,18 @@ gulp.task('browserSync', ['nodemon'], function() {
 });
 
 gulp.task('default', function (callback) {
-  runSequence(['sass','browserSync', 'watch'],
+  runSequence(['sass', 'babel', 'browserSync', 'watch'],
     callback
   )
 });
+
+gulp.task('babel', () =>
+	gulp.src('modules/jsx/*.jsx')
+		.pipe(babel({
+			plugins: ['transform-react-jsx']
+		}))
+		.pipe(gulp.dest('modules/js/'))
+);
 
 gulp.task('watch', ['browserSync', 'sass'], function (){
   gulp.watch('public/scss/**/*.scss', ['sass']);

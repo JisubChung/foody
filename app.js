@@ -35,13 +35,18 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set view engine to jsx
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
 // ROUTES
-app.get('/', function(req, res) {
-	res.sendfile('./public/pages/index.html');
-});
+var options = {root: __dirname};
+
+app.get('/', require('./routes').index);
 
 app.get('/about', function(req,res) {
-	res.sendfile('./public/pages/about.html');
+	res.sendFile('./public/pages/about.html', options);
 });
 
 app.use('/', router);
