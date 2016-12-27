@@ -15,14 +15,15 @@ var url = 'mongodb://localhost:27017/foody';
 MongoClient.connect(url, function(err, db) {
 	assert.equal(null, err);
 	console.log("Mongo Connected");
+
+	// NOTE: from what I understand, we don't need to close this here
 	db.close();
 });
-
 
 app.set('port', (process.env.PORT || 5000));
 
 // TODO: there's a prettier way to do this, figure it out.
-////(The goal with the following section is to change file paths in the case of production vs develop
+//// (The goal with this section is to change file paths in the case of production vs develop)
 //// If there is a dist, use it
 // fs.access(path.join(__dirname,'dist'),'r', function(err) {
 // 	var serve = !err ? 'dist':'public';
@@ -34,14 +35,13 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 // ROUTES
 app.get('/', function(req, res) {
-	res.sendfile('./index.html');
+	res.sendfile('./public/pages/index.html');
 });
 
 app.get('/about', function(req,res) {
-	res.sendfile('./public/pages/test.html');
+	res.sendfile('./public/pages/about.html');
 });
 
 app.use('/', router);
