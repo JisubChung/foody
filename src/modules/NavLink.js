@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-// import './About.scss';
+import { Link } from 'react-router'
+import './NavLink.scss';
 
-class About extends Component {
+class NavLink extends Component {
 	render() {
 		return (
-			<div>About</div>
+			<Link {...this.props} activeClassName="active"/>
 		);
 	}
 }
 
-export default About;
+export default NavLink;
