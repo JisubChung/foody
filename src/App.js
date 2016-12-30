@@ -10,9 +10,10 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Very Web Site!</h2>
-          <ul>
+          <ul className="nav-bar">
             <li><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
             <li><NavLink to="/About">About</NavLink></li>
+            <li><NavLink to="/Profile">Profile</NavLink></li>
           </ul>
         </div>
         <div className="App-intro">

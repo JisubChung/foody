@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import App from './App';
-import Home from './pages/Home';
 import About from './pages/About';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
 import './index.scss';
 
 ReactDOM.render(
@@ -11,6 +12,7 @@ ReactDOM.render(
 		<Route path="/" component={App}>
 			<IndexRoute component={Home}/>
 			<Route path="/about" component={About}/>
+			<Route path="/profile" component={Profile}/>
 		</Route>
 	</Router>,
   document.getElementById('root')
