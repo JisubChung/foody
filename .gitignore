@@ -1,12 +1,16 @@
-dist 
-## ide files
-.idea/
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-## node modules
-node_modules/
+# dependencies
+node_modules
 
-bower_components/
+# testing
+coverage
 
-npm-debug.log
+# production
+build
+
+# misc
 .DS_Store
-/*.env
+.env
+npm-debug.log
+.idea
