@@ -1,23 +1,37 @@
 import React, { Component } from 'react';
 import NavLink from './modules/NavLink';
-import logo from './img/logo.svg';
+import logo from './img/burger.png';
 import './App.scss';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      revealMenu: null
+    }
+  }
+
+  handleClick(e) {
+    console.log(e);
+//    this.setState({revealMenu: e})
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Very Web Site!</h2>
-          <ul className="nav-bar">
+        <header>
+          <img src={logo} className="App-logo"/>Foody
+        </header>
+        <nav>
+          <ul>
             <li><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
-            <li><NavLink to="/About">About</NavLink></li>
+            <li><NavLink to="/Discover">Discover</NavLink></li>
+            <li><NavLink to="/Setting">Setting</NavLink></li>
             <li><NavLink to="/Profile">Profile</NavLink></li>
           </ul>
-        </div>
-        <div className="App-intro">
-          <p>You're currently on page:</p>
+        </nav>
+        <div className="content">
           {this.props.children}
         </div>
       </div>
