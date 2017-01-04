@@ -21,7 +21,8 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <img src={logo} className="App-logo"/>Foody
+          <img src={logo} className="logo"/>
+          <div className="title">Foody</div>
         </header>
         <nav>
           <ul>

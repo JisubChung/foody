@@ -19,15 +19,22 @@ nav {
 }
 @media screen and (max-width: 768px) {
   header {
-    height: 2em;
-    padding: 1em;
+    height: 1.5em;
+    padding: .5em;
     position: relative;
     font-size: 1.2em;
-    .App-logo {
-      height: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .logo {
+      height: 1.5em;
       position: absolute;
-      top: 1em;
-      left: 1em;
+      top: .45em;
+      left: .75em;
+    }
+    .title {
+      font-family: "helvetica", "roboto", sans-serif;
+      padding-left: 1.5em;
     }
   }
   nav {
